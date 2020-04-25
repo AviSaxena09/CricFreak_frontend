@@ -1,0 +1,27 @@
+<div class="match-container">
+  <h4 class="teamDataTitle col-10">
+    Matches</h4>
+
+  <div class="card match-tabs mt-3" *ngFor="let item of upcomingMatches">
+    <div class="card-body">
+      <a class="col-10 " target="_blank" [href]='item.Links'>
+        <span class="info">{{item.Match_Info}}</span><br /><br/>
+        <div class="row">
+          <div class="col-2">Teams : </div>
+          <div class="col-10 imgs">
+            <img [src]='getImg1(item.Teams)'>
+            <span>{{getTeam1(item.Teams)}}</span>
+            v
+            <img [src]='getImg2(item.Teams)'>
+            <span>{{getTeam2(item.Teams)}}</span>
+          </div>
+          <br />
+        </div>
+        <div class="row venue" >
+          <div class="col-2">Venue : </div>
+          <span class="col-10">{{item.Venue}}</span><br />
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

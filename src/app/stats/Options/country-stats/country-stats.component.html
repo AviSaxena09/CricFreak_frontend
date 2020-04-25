@@ -1,0 +1,77 @@
+<ul class="nav nav-tabs">
+  <li class="active tab-item" [routerLink]="[ '/dashBoard/stats/country-stat']">
+    <!-- <span
+      class="fa fa-flag"></span><br /> -->
+      COUNTRY</li>
+  <li class="tab-item" [routerLink]="[ '/dashBoard/stats/player-stat']">
+    <!-- <span class="fa fa-flag">
+
+  </span><br /> -->
+  PLAYER
+  </li>
+  <li class="tab-item" [routerLink]="[ '/dashBoard/stats/series-stat']">
+    <!-- <span class="fa fa-flag"></span><br /> -->
+    SERIES
+  </li>
+</ul>
+
+<!--For Country data list-->
+<div class="row">
+  <div class="col-6 row mt-3 mb-3">
+    <div class="col-2"></div>
+    <span class="col-2 mt-1">Country:</span>
+    <input placeholder="Select" class=" col-6 form-control" type="text" name="country" list="countryname" [(ngModel)]='selectedCountry'
+      (change)='getCountryData()'>
+    <datalist id="countryname">
+      <option *ngFor="let cntry of countryList" value="{{cntry}}">
+    </datalist>
+  </div>
+  <!--For Format-->
+  <div class="col-6 row mt-3 mb-3">
+    <!-- <span>Format:</span> -->
+    <!-- <img src="../../../../assets/Images/ipl_icon.jpg" height="40" width="60" (click)="setFormat('IPL')">
+    <img src="../../../../assets/Images/ODI.png" height="40" width="60" (click)="setFormat('ODI')">
+    <img src="../../../../assets/Images/T20.png" height="40" width="60" (click)="setFormat('T20')"> -->
+    <!-- <div class="radio-btns row">
+    <input class="col-2" type="radio" id="male" name="format" value="IPL" (change)="setFormat('IPL',$event.target.checked)">
+    <label class="col-1" for="male">IPL</label><br>
+    <input class="col-2" type="radio" id="female" name="format" value="ODI" (change)="setFormat('ODI',$event.target.checked)">
+    <label class="col-1" for="female">ODI</label><br>
+    <input class="col-2" type="radio" id="other" name="format" value="T20" (change)="setFormat('T20',$event.target.checked)">
+    <label class="col-1" for="other">T20</label>
+    </div> -->
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+      <!-- <label class="btn btn-secondary">
+        <input type="radio" name="options" (click)="setFormat('IPL')" id="option1" autocomplete="off"> IPL
+      </label> -->
+      <label class="odi btn btn-secondary active">
+        <input type="radio" name="options" (click)="setFormat('ODI')" id="option2" autocomplete="off"> ODI
+      </label>
+      <label class="btn btn-secondary">
+        <input type="radio" name="options" (click)="setFormat('T20')" id="option3" autocomplete="off"> T20
+      </label>
+    </div>
+  </div>
+</div>
+<!--For Displaying Header of Country Data-->
+<div *ngIf="!responseFailed">
+  <nav class="country-Data-Header mb-2">{{countryData.country}}</nav>
+  <!--For Table-->
+  <div class="Country-Data">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th *ngFor="let head of countryData.keys">{{head}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let noRows of countryData.Data;let i=index">
+          <td *ngFor="let data of countryData.Data;let j=index">{{countryData.Data[i][countryData.keys[j]]}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="retrieval-failed" *ngIf="responseFailed">
+  <p>Failed to fetch data !!!</p>
+</div>

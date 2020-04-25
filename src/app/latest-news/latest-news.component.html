@@ -1,0 +1,21 @@
+<div class="news" >
+<div class="card news-container" *ngFor="let item of LatestNews" >
+  <a class="news-link" target="_blank" [href]="item.link">
+  <img class="card-img-top news-img"
+    [src]="item.photo_link" alt="Card image">
+    </a>
+  <div class="card-body">
+    <h5 class="card-title news-heading">
+      <a class="news-link" target="_blank" [href]="item.link">
+        {{item.heading}}
+        </a>
+    </h5>
+    <p class="card-text news-info">
+      {{item.brief_Info}}
+    </p>
+    <div class="news-timedetails  mb-3">
+      <i class="fa fa-clock-o news-time"></i>&nbsp;
+      <span class="news-timestamp">{{item.timestamp}}</span></div>
+  </div>
+</div>
+</div>

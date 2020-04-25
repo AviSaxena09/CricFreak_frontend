@@ -1,0 +1,31 @@
+<div class="sidenav">
+  <a *ngFor="let item of RecordSelect;let i=index" [ngClass]="{active:RecordSelect[i]==selectedrecord}" (click)='setselectedrecord(RecordSelect[i])' >{{item}}</a>
+</div>
+
+<div class="teamContainer">
+  <div class="row">
+  <!-- <div class="col-6 row mt-3 mb-3">
+    <div class="col-2"></div>
+    <span class="col-2 mt-1">Record:</span>
+    <input class=" col-8 form-control" type="text" name="country" list="countryname" [(ngModel)]='selectedrecord'
+      (change)='getRecordData()'>
+    <datalist id="countryname">
+      <option *ngFor="let item of RecordSelect" value="{{item}}">
+    </datalist>
+  </div> -->
+
+  <table class="table table-striped teamData">
+    <thead>
+      <tr>
+        <th *ngFor="let item of TeamRankingKeys">{{item}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let team of TeamRankingData,let i=index">
+         <td *ngFor="let key of TeamRankingKeys;let j=index">        
+           <span>{{team[key]}}</span>
+          </td> 
+      </tr>
+    </tbody>
+  </table>
+  </div>

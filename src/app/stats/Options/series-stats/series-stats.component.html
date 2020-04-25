@@ -1,0 +1,44 @@
+<ul class="nav nav-tabs">
+  <li class="tab-item" [routerLink]="[ '/dashBoard/stats/country-stat']">
+    <!-- <span class="fa fa-flag"></span><br/> -->
+    COUNTRY</li>
+  <li class="tab-item" [routerLink]="[ '/dashBoard/stats/player-stat']">
+    <!-- <span class="fa fa-flag"></span><br/> -->
+    PLAYER</li>
+  <li class="active tab-item" [routerLink]="[ '/dashBoard/stats/series-stat']">
+    <!-- <span class="fa fa-flag"></span><br/> -->
+    SERIES</li>
+</ul>
+
+<!-- <img src="../../../../assets/Images/ODI.png" height="40" width="60" (click)="setFormat('ODI')">
+<img src="../../../../assets/Images/T20.png" height="40" width="60" (click)="setFormat('T20')"> -->
+<div class="prediction-container mt-3">
+<div class="btn-group btn-group-toggle series-btn" data-toggle="buttons">
+  <label class="btn btn-secondary active">
+    <input placeholder="Select" type="radio" name="options" (click)="setFormat('ODI')" id="option2" autocomplete="off"> ODI
+  </label>
+  <label class="btn btn-secondary">
+    <input placeholder="Select" type="radio" name="options" (click)="setFormat('T20')" id="option3" autocomplete="off"> T20
+  </label>
+</div>
+<div *ngIf="seriesData">
+<table class="table table-hover seriesTable mt-3">
+  <thead>
+    <tr>
+      <th *ngFor="let data of seriesDataKeys">{{data}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of seriesData| paginate: { itemsPerPage: 8, currentPage: p }">
+      <td *ngFor="let datakey of seriesDataKeys">
+       <span *ngIf="datakey!='Player(s) of the Match'">{{data[datakey]}}</span>
+       <ul *ngIf="datakey=='Player(s) of the Match'" class="playerList">
+         <li *ngFor="let plyr of data[datakey]">{{plyr}}</li>
+       </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+</div>

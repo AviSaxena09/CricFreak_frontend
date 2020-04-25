@@ -1,0 +1,11 @@
+.retrieval-failed{
+    text-align: center;
+    margin-top: 10vh;
+}
+.retrieval-failed p{
+    font-size: 1.4rem;
+    font-family: 'Capriola';
+}
+.retrieval-failed p img{
+    width: 19%;
+}

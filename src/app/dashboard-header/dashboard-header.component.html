@@ -1,0 +1,89 @@
+<nav class="navbar navbar-expand-lg navbar-light homePageNav">
+  <a class="navbar-brand dashboard-header"><img src="../../assets/Images/logo.png" height="60" width="60">Cric Freak</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <!-- <li class="nav-item active">
+        <a class="nav-link" [routerLink]="[ '/dashBoard/stats']">stats <span class="sr-only">(current)</span></a>
+      </li> -->
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="[ '/homepage']" routerLinkActive="router-link-active"><span class="fa fa-home">&nbsp;&nbsp;<i>Home</i></span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="[ '/dashBoard/stats/country-stat']" routerLinkActive="router-link-active"><span class="fa fa-bar-chart">&nbsp;&nbsp;<i>Stats</i></span></a>
+      </li>      
+      <!-- <li class="nav-item">
+        <div class="dropdown nav-link active">
+          <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="fa fa-bar-chart">&nbsp;&nbsp;Stats</span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" [routerLink]="[ '/dashBoard/stats/country-stat']"><span class="fa fa-flag">Country</span></a>
+            <a class="dropdown-item" [routerLink]="[ '/dashBoard/stats/player-stat']"><span class="fa fa-football-helmet">Player</span></a>
+            <a class="dropdown-item" [routerLink]="[ '/dashBoard/stats/series-stat']">Series</a>
+          </div>
+        </div>
+      </li>       -->
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="[ '/dashBoard/prediction']" routerLinkActive="router-link-active"><span class="fa fa-cogs">&nbsp;&nbsp;<i>Prediction</i></span> <span class="sr-only">(current)</span></a>
+      </li>      
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="[ '/dashBoard/latest-news']" routerLinkActive="router-link-active"><span class="fa fa-newspaper-o">&nbsp;&nbsp;<i>Latest News</i></span> <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="[ '/dashBoard/team-rank']" routerLinkActive="router-link-active"><span class="fa fa-users">&nbsp;&nbsp;<i>Team Ranking</i></span> <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="[ '/dashBoard/player-rank']" routerLinkActive="router-link-active"><span class="fa fa-star-o">&nbsp;&nbsp;<i>Player Ranking</i></span> <span class="sr-only">(current)</span></a>
+      </li>   
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="[ '/dashBoard/upcoming-matches']" routerLinkActive="router-link-active"><span class="fa fa fa-sort-amount-asc">&nbsp;&nbsp;<i>Upcoming Matches</i></span> <span class="sr-only">(current)</span></a>
+      </li>             
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="[ '/dashBoard/ipl-records']" routerLinkActive="router-link-active"><span class="fa fa-history">&nbsp;&nbsp;<i>IPL Records</i></span> <span class="sr-only">(current)</span></a>
+      </li>       
+      <li class="nav-item">
+        <a class="nav-link" title="Live Score" [routerLink]="[ '/dashBoard/live']" routerLinkActive="router-link-active"><span class="live fa fa-rss-square ">&nbsp;&nbsp;<!---<i>Live Score</i>--></span> <span class="sr-only">(current)</span></a>
+      </li> 
+    </ul>
+
+    <!-- <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="[ '/dashBoard/stats/country-stat']" >Dashboard <span class="sr-only">(current)</span></a>
+      </li>
+    </ul> -->
+    <!-- <img class="Stat-icon" title="Statistics" [routerLink]="[ '/dashBoard/stats/country-stat']" src="../../assets/Images/statsicon.jpg" height="45" width="75"> -->
+  </div>
+</nav>
+<!--<nav class="navbar navbar-expand-lg navbar-light bg-light homePageNav">
+   <a class="navbar-brand dashboard-header"><img src="../../assets/Images/logo.png" height="60" width="60">Cric Freak</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button> -->
+  <!-- <div class="collapse navbar-collapse" id="navbarNav"> -->
+    <!-- <ul class="navbar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="[ '/']"><span class="fa fa-home">&nbsp;&nbsp;Home</span></a>
+      </li>
+      <li class="nav-item">
+        <div class="dropdown nav-link active">
+          <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="fa fa-bar-chart">&nbsp;&nbsp;Stats</span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" [routerLink]="[ '/dashBoard/stats/country-stat']">Country</a>
+            <a class="dropdown-item" [routerLink]="[ '/dashBoard/stats/player-stat']">Player</a>
+            <a class="dropdown-item" [routerLink]="[ '/dashBoard/stats/series-stat']">Series</a>
+          </div>
+        </div>
+      </li>      
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="[ '/dashBoard/prediction']"><span class="icon-cogs">&nbsp;&nbsp;Prediction</span> <span class="sr-only">(current)</span></a>
+      </li>      
+    </ul> -->
+
+  <!-- </div> -->
+<!-- </nav> -->

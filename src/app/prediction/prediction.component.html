@@ -1,0 +1,348 @@
+<!-- <div class="row mb-3">
+  <div class="col-4">
+    <span>City:</span>
+    <input type="text" name="country" list="countryname" [(ngModel)]='selectedCity' (change)='getCityData()'>
+    <datalist id="countryname">
+      <option *ngFor="let cntry of cityList" value="{{cntry}}">
+    </datalist>
+  </div>
+
+  <div class="col-4">
+    <span>Format:</span>
+    <input type="text" name="country" list="format" [(ngModel)]='format' (change)='setFormat()'>
+    <datalist id="format">
+      <option *ngFor="let fmt of formatData" value="{{fmt}}">
+    </datalist>
+  </div>
+
+  <div class="col-4">
+    <span>Toss Winner:</span>
+    <input type="text" name="country" list="tossWinner" [(ngModel)]='tossWinnerSelect' (change)='settossWinner()'>
+    <datalist id="tossWinner">
+      <option *ngFor="let fmt of tossWinner" value="{{fmt}}">
+    </datalist>
+  </div>
+</div>
+
+
+<div class="row mb-3">
+  <div class="col-4">
+    <span>Neutral Venue:</span>
+    <input type="text" name="country" list="ntrlvenu" [(ngModel)]='selectedneutralVenueList'
+      (change)='setneutralVenueListData()'>
+    <datalist id="ntrlvenu">
+      <option *ngFor="let ntrlvenu of neutralVenueList" value="{{ntrlvenu}}">
+    </datalist>
+  </div>
+
+  <div class="col-4">
+    <span>Toss Decision:</span>
+    <input type="text" name="tossdesc" list="desc" [(ngModel)]='tossDescisionSelect' (change)='setTossDescisionData()'>
+    <datalist id="desc">
+      <option *ngFor="let desc of tossDescisionList" value="{{desc}}">
+    </datalist>
+  </div>
+
+  <div class="col-4">
+    <span>Team 1:</span>
+    <input type="text" name="tm1" list="tm1" [(ngModel)]='team1' (change)='setTeam1()'>
+    <datalist id="tm1">
+      <option *ngFor="let fmt of team1List" value="{{fmt}}">
+    </datalist>
+  </div>
+</div>
+
+<div class="row mb-3">
+
+  <div class="col-4">
+    <span>Team 2:</span>
+    <input type="text" name="tm2" list="tm2" [(ngModel)]='team2' (change)='setTeam2()'>
+    <datalist id="tm2">
+      <option *ngFor="let fmt of team2List" value="{{fmt}}">
+    </datalist>
+  </div>
+  <div class="col-4">
+    <span>Batsman:</span>
+    <input type="text" name="btsman" list="btsman" [(ngModel)]="selectedBatsman" (change)='setBatsman()'>
+    <datalist id="btsman">
+      <option *ngFor="let btsman of batsmanList" value="{{btsman}}">
+    </datalist>
+  </div>
+
+  <div class="col-4">
+    <span>Bowler:</span>
+    <input type="text" name="bwlr" list="bwlr" [(ngModel)]='bowlerSelect' (change)='setBowler()'>
+    <datalist id="bwlr">
+      <option *ngFor="let bwlr of batsmanList" value="{{bwlr}}">
+    </datalist>
+  </div>
+
+</div>
+
+<div class="row mb-3">
+  <div class="col-4">
+    <span>Non Striker:</span>
+    <input type="text" name="NS" list="NS" [(ngModel)]="NSselect" (change)='setNS()'>
+    <datalist id="NS">
+      <option *ngFor="let bwlr of batsmanList" value="{{bwlr}}">
+    </datalist>
+  </div>
+
+
+  <div class="col-4">
+    <span>Extra Run:</span>
+    <input type="text" name="extra-run" [(ngModel)]='extraRun' (change)='setExtraRun()'>
+  </div>
+  <div class="col-4">
+    <span>Player Out:</span>
+    <input type="text" name="btsman" [(ngModel)]='playerOut' (change)='setPlayerOut()'>
+  </div>
+
+
+
+</div>
+
+<div class="row mb-3">
+  <div class="col-4">
+    <span>wickets:</span>
+    <input type="text" name="bwlr" list="wct" [(ngModel)]='wicketSelect' (change)='setWicket()'>
+    <datalist id="wct">
+      <option *ngFor="let bwlr of wicketList" value="{{bwlr}}">
+    </datalist>
+  </div>
+  <div class="col-4">
+    <span>Current Score:</span>
+    <input type="text" name="extra-run" [(ngModel)]='currentScore' (change)='setcurrentScore()'>
+  </div>
+  <div class="col-4">
+    <span>Remaining Balls:</span>
+    <input type="text" name="btsman" [(ngModel)]='remBall' (change)='setRemBall()'>
+  </div>
+</div>
+<button class="btn btn-info btn-md" (click)='Predict()'>Predict</button>
+
+<div class="Result" *ngIf="result">
+  <span>Prediction :  {{result}}</span>
+</div> -->
+
+<div class="Tabs-Format">
+  <ul class="nav nav-tabs">
+    <!-- <li [ngClass]="{'active': ActiveTab=='test'}" (click)='setFormat("test")'>
+      TEST</li>
+    <li [ngClass]="{'active': ActiveTab=='odi'}" (click)='setFormat("odi")'>
+      ODI</li>
+    <li [ngClass]="{'active': ActiveTab=='t20i'}" (click)='setFormat("t20i")'>
+      T20I</li> -->
+      <li [ngClass]="{'active': section=='pred'}" (click)="setSection('pred')">
+        FINAL SCORE PREDICTION</li>
+        <li [ngClass]="{'active': section=='wick'}" (click)="setSection('wick')">
+         WICKET PREDICTION</li>
+  </ul>
+</div>
+<div *ngIf="section=='wick'">
+  <wicket-prediction></wicket-prediction>
+</div>
+<div class="row mt-3" *ngIf="section=='pred'">
+  <div class="col-8"></div>
+  <div class="col-2 btn-group btn-group-toggle series-btn" data-toggle="buttons">
+    <!-- <label class="btn btn-secondary">
+      <input type="radio" name="options" (click)="setGender('mens')" id="option2" autocomplete="off"> Men's
+    </label>
+    <label class="btn btn-secondary">
+      <input type="radio" name="options" (click)="setGender('womens')" id="option3" autocomplete="off"> Women's
+    </label> -->
+      <label class="btn btn-secondary active">
+      <input type="radio" name="options" (click)='setFormat("ODI")' id="option3" autocomplete="off"> ODI
+    </label>
+    <label class="btn btn-secondary">
+      <input type="radio" name="options" (click)='setFormat("T20")' id="option3" autocomplete="off"> T20I
+    </label>
+  </div>
+
+</div>
+<div class="card Predication-Container" *ngIf="section=='pred'">
+
+  <div class="card-body">
+    <div class="row mb-3">
+      <div class="col-6 row">
+        <span class="col-4">City:</span>
+        <input placeholder="Select" class="col-8 form-control" type="text" name="country" list="countryname" [(ngModel)]='selectedCity'
+          (change)='getCityData()'>
+        <datalist id="countryname">
+          <option *ngFor="let cntry of cityList" value="{{cntry}}">
+        </datalist>
+      </div>
+
+      <!-- <div class="col-6 row">
+        <span class="col-4">Format:</span>
+        <input placeholder="Select" class="col-8 form-control" type="text" name="country" list="format" [(ngModel)]='format'
+          (change)='setFormat()'>
+        <datalist id="format">
+          <option *ngFor="let fmt of formatData" value="{{fmt}}">
+        </datalist>
+      </div> -->
+      <div class="col-6 row">
+        <span class="col-4">Toss Winner:</span>
+        <input placeholder="Select" class="col-8 form-control" type="text" name="country" list="tossWinner" [(ngModel)]='tossWinnerSelect'
+          (change)='settossWinner()'>
+        <datalist id="tossWinner">
+          <option *ngFor="let fmt of tossWinner" value="{{fmt}}">
+        </datalist>
+      </div>
+    </div>
+
+
+    <div class="row mb-3">
+
+
+      <div class="col-6 row">
+        <span class="col-4">Neutral Venue:</span>
+        <input placeholder="Select" class="col-8 form-control" type="text" name="country" list="ntrlvenu"
+          [(ngModel)]='selectedneutralVenueList' (change)='setneutralVenueListData()'>
+        <datalist id="ntrlvenu">
+          <option *ngFor="let ntrlvenu of neutralVenueList" value="{{ntrlvenu}}">
+        </datalist>
+      </div>
+      <div class="col-6 row">
+        <span class="col-4">Toss Decision:</span>
+        <input placeholder="Select" class="col-8 form-control" type="text" name="tossdesc" list="desc" [(ngModel)]='tossDescisionSelect'
+          (change)='setTossDescisionData()'>
+        <datalist id="desc">
+          <option *ngFor="let desc of tossDescisionList" value="{{desc}}">
+        </datalist>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+
+
+      <div class="col-6 row">
+        <span class="col-4">Team 1:</span>
+        <input placeholder="Select" class="col-8 form-control" type="text" name="tm1" list="tm1" [(ngModel)]='team1' (change)='setTeam1()'>
+        <datalist id="tm1">
+          <option *ngFor="let fmt of team1List" value="{{fmt}}">
+        </datalist>
+      </div>
+      <div class="col-6 row">
+        <span class="col-4">Team 2:</span>
+        <input placeholder="Select" class="col-8 form-control" type="text" name="tm2" list="tm2" [(ngModel)]='team2' (change)='setTeam2()'>
+        <datalist id="tm2">
+          <option *ngFor="let fmt of team2List" value="{{fmt}}">
+        </datalist>
+      </div>
+    </div>
+    <div class="row mb-3">
+
+
+      <div class="col-6 row">
+        <span class="col-4">Batsman:</span>
+        <input placeholder="Select" class="col-8 form-control" type="text" name="btsman" list="btsman" [(ngModel)]="selectedBatsman"
+          (change)='setBatsman()'>
+        <datalist id="btsman">
+          <option *ngFor="let btsman of batsmanList" value="{{btsman}}">
+        </datalist>
+      </div>
+      <div class="col-6 row">
+        <span class="col-4">Bowler:</span>
+        <input placeholder="Select" class="col-8 form-control" type="text" name="bwlr" list="bwlr" [(ngModel)]='bowlerSelect'
+          (change)='setBowler()'>
+        <datalist id="bwlr">
+          <option *ngFor="let bwlr of bowlerList" value="{{bwlr}}">
+        </datalist>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+
+
+      <div class="col-6 row">
+        <span class="col-4">Non Striker:</span>
+        <input placeholder="Select" class="col-8 form-control" type="text" name="NS" list="NS" [(ngModel)]="NSselect" (change)='setNS()'>
+        <datalist id="NS">
+          <option *ngFor="let bwlr of batsmanList" value="{{bwlr}}">
+        </datalist>
+      </div>
+      <div class="col-6 row">
+        <span class="col-4">Extra Run:</span>
+        <input class="col-8 form-control" type="text" name="extra-run" [(ngModel)]='extraRun' (change)='setExtraRun()'>
+      </div>
+
+
+
+    </div>
+
+    <div class="row mb-3">
+
+
+
+      <div class="col-6 row">
+        <span class="col-4">Player Out:</span>
+        <input class="col-8 form-control" type="text" name="btsman" [(ngModel)]='playerOut' (change)='setPlayerOut()'>
+      </div>
+      <div class="col-6 row">
+        <span class="col-4">wickets:</span>
+        <input placeholder="Select" class="col-8 form-control" type="text" name="bwlr" list="wct" [(ngModel)]='wicketSelect'
+          (change)='setWicket()'>
+        <datalist id="wct">
+          <option *ngFor="let bwlr of wicketList" value="{{bwlr}}">
+        </datalist>
+      </div>
+    </div>
+    <div class="row mb-3">
+
+      <div class="col-6 row">
+        <span class="col-4">Current Score:</span>
+        <input class="col-8 form-control" type="text" name="extra-run" [(ngModel)]='currentScore'
+          (change)='setcurrentScore()'>
+      </div>
+      <div class="col-6 row">
+        <span class="col-4">Remaining Balls:</span>
+        <input class="col-8 form-control" type="text" name="btsman" [(ngModel)]='remBall' (change)='setRemBall()'>
+      </div>
+    </div>
+    <!-- <div class="row mb-3">
+
+    </div> -->
+    <div class="row">
+      <div class="col-4"></div>
+      <button class=" col-4 btn btn-md predictbtn" data-toggle="modal" data-target="#exampleModal"
+        (click)='Predict()'>Predict</button>
+      <div class="col-4"></div>
+    </div>
+
+    <!-- <div class="Result"> -->
+      <!--*ngIf="result" <span>Prediction :  {{result}}</span> -->
+      <!-- Modal -->
+      <div class="modal fade" data-backdrop="static" data-keyboard="false" id="exampleModal" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Prediction</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body row">
+              <!-- <div > -->
+              <!-- <rg-gauge-chart 
+              [canvasWidth]="canvasWidth"
+              [needleValue]="needleValue"
+              [options]="options"
+              [centralLabel]="centralLabel"
+              ></rg-gauge-chart> -->
+              <div class="col-12" id="chartdiv"></div>
+              <!-- </div> -->
+              
+            </div>
+            <div><h5>Range is {{range[0]}} to {{range[1]}}<br/>Predicted final score is {{result}}</h5></div>
+            <!-- <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    <!-- </div> -->
+  </div>
+</div>

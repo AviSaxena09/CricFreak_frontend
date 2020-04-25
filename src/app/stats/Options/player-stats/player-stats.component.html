@@ -1,0 +1,94 @@
+<ul class="nav nav-tabs">
+  <li class="tab-item" [routerLink]="[ '/dashBoard/stats/country-stat']">
+    <!-- <span class="fa fa-flag"></span><br /> -->
+    COUNTRY
+  </li>
+  <li class="active tab-item" [routerLink]="[ '/dashBoard/stats/player-stat']">
+    <!-- <span
+      class="fa fa-flag"></span><br /> -->
+      PLAYER</li>
+  <li class="tab-item" [routerLink]="[ '/dashBoard/stats/series-stat']">
+    <!-- <span class="fa fa-flag"></span><br /> -->
+    SERIES
+  </li>
+</ul>
+
+<div class="row  mb-3">
+  <div class="col-6 row mt-3">
+    <div class="col-2"></div>
+    <span class="col-2 mt-1">Country:</span>
+    <input placeholder="Select" type="text" class="col-6 form-control" name="country" list="countryname" [(ngModel)]='selectedCountry'
+      (change)='getCountryData()'>
+    <datalist id="countryname">
+      <option *ngFor="let cntry of countryList" value="{{cntry}}">
+    </datalist>
+  </div>
+  <div class="col-6 row mt-3">
+    <!-- <div class="col-2"></div> -->
+    <span class="col-2 mt-1">Player:</span>
+    <input placeholder="Select" type="text" class="col-6 form-control" name="player" list="playername" [(ngModel)]='selectedPlayer'
+      (change)='setPlayerId()'>
+    <datalist id="playername">
+      <option *ngFor="let plyr of playerList,let i=index" value="{{plyr.NAME}}">
+    </datalist>
+  </div>
+</div>
+<!--For Displaying Header of Player Data-->
+<div *ngIf="!responseFailed">
+  <!--For Table-->
+  <div class="General-Data">
+    <nav class="Player-Data-Header mb-3" *ngIf="!Response">Details</nav>
+    <table class="table table-hover">
+      <tbody>
+        <tr *ngFor="let data of generalDataKeys;let i=index">
+          <td>{{data}}</td>
+          <td>{{generalData[data]}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <div class="General-Data row">
+    
+    <div class="col-6">
+      <nav class="Player-Data-Header mb-3" *ngIf="!Response">Balling Details</nav>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th *ngFor="let head of ballDataKeys">{{head}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of ballData;let i=index">
+            <td *ngFor="let datakey of ballDataKeys;let j=index">
+              <span *ngIf="data[datakey]!='Not_Applicable'">{{data[datakey]}}</span>
+              <span *ngIf="data[datakey]=='Not_Applicable'">NA</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-6">
+      <nav class="Player-Data-Header mb-3" *ngIf="!Response">Batting Details</nav>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th *ngFor="let head of batDataKeys">{{head}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of batData;let i=index">
+            <td *ngFor="let datakey of batDataKeys;let j=index">
+              <span *ngIf="data[datakey]!='Not_Applicable'">{{data[datakey]}}</span>
+              <span *ngIf="data[datakey]=='Not_Applicable'">NA</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="retrieval-failed" *ngIf="responseFailed">
+  <p>Failed to fetch data !!!</p>
+</div>

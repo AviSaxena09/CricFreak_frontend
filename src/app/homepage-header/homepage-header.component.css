@@ -1,0 +1,14 @@
+.dashboard-header{
+    font-family: 'Capriola';
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+.homePageNav{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.Stat-icon{
+    margin-left: 93%;
+    cursor: pointer;
+    border: 1.5px solid blue
+}

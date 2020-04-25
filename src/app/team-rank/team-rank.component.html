@@ -1,0 +1,60 @@
+<div class="Tabs-Format">
+  <ul class="nav nav-tabs">
+    <!-- <li [ngClass]="{'active': ActiveTab=='test'}" (click)='setFormat("test")'>
+      TEST</li>
+    <li [ngClass]="{'active': ActiveTab=='odi'}" (click)='setFormat("odi")'>
+      ODI</li>
+    <li [ngClass]="{'active': ActiveTab=='t20i'}" (click)='setFormat("t20i")'>
+      T20I</li> -->
+      <li [ngClass]="{'active': gender=='mens'}" (click)="setGender('mens')">
+        Men</li>
+        <li [ngClass]="{'active': gender=='womens'}" (click)="setGender('womens')">
+          Women</li>
+  </ul>
+</div>
+<div class="teamContainer">
+  <div class="row mb-3">
+  <h4 class="teamDataTitle col-10" *ngIf="!ApiError && TeamRankingData!=''">
+    {{TeamRankingData.Type[0]}} Team Rankings</h4>
+  <div class="col-2 btn-group btn-group-toggle series-btn" data-toggle="buttons">
+    <!-- <label class="btn btn-secondary">
+      <input type="radio" name="options" (click)="setGender('mens')" id="option2" autocomplete="off"> Men's
+    </label>
+    <label class="btn btn-secondary">
+      <input type="radio" name="options" (click)="setGender('womens')" id="option3" autocomplete="off"> Women's
+    </label> -->
+    <label class="btn btn-secondary active" *ngIf="gender!='womens'">
+      <input type="radio" name="options" (click)='setFormat("test")' id="option3" autocomplete="off"> Test
+    </label>  
+      <label class="btn btn-secondary" [ngClass]="{'active': gender=='womens'}">
+      <input type="radio" name="options" (click)='setFormat("odi")' id="option3" autocomplete="off"> ODI
+    </label>
+    <label class="btn btn-secondary">
+      <input type="radio" name="options" (click)='setFormat("t20i")' id="option3" autocomplete="off"> T20I
+    </label>
+  </div>
+  </div>
+<table class="table table-striped teamData" *ngIf="!ApiError && TeamRankingData!=''">
+  <thead>
+    <tr>
+      <th *ngFor="let item of TeamRankingKeys">{{item}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let team of TeamRankingData.Data;let i=index">
+       <td *ngFor="let key of TeamRankingKeys;let j=index" [ngClass]="{'firstPos': i==0}">        
+         <div class="Flags-icon" *ngIf="j==1">
+           <img  [src]="'../../assets/Flags/'+ team[key]+'.png'">
+           {{team[key]}}
+          </div>
+         <span *ngIf="j!=1">{{team[key]}}</span>
+        </td> 
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="retrieval-failed" *ngIf="ApiError">
+  <p>Failed to fetch data !!!</p>
+</div>
+
+<ng4-loading-spinner> </ng4-loading-spinner>

@@ -1,0 +1,103 @@
+.teamContainer{
+    width: 80%;
+    margin-left: 19.5%;
+    margin-top: 2vh;
+    max-height: 85.6vh;
+    font-family: 'Capriola';
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.teamData{
+    border-color: none;
+    font-family: 'Inria Serif';
+}
+.teamDataTitle{
+    text-transform: capitalize;
+    /* font-weight: bold; */
+}
+.teamData thead tr{
+    font-size: 0.8rem;
+    color: rgb(163, 159, 159);
+}
+/* .teamData tbody tr:nth-of-type(1){
+    background-color: rgb(42, 16, 63) !important;
+    color: whitesmoke;
+} */
+.teamData td,.teamDatath{
+    border-top: none;
+}
+.teamData thead tr th:nth-of-type(1){
+    text-align: center;
+}
+.teamData tbody tr td:nth-of-type(1){
+    text-align: center;
+}
+/* .teamData tbody tr td:nth-of-type(2){
+    width: 40%;
+    text-align: left;
+} */
+.teamData tbody tr td{
+    /* width: 16%; */
+    white-space: nowrap;
+    /* text-align: center; */
+    font-family: 'Capriola';
+    padding-bottom: 0.4rem;
+    padding-top: 0.4rem;
+}
+.firstPos{
+    padding-top: 1.3rem !important;
+    padding-bottom: 1.3rem !important;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.firstPos .Flags-icon img{
+    width: 40%;
+}
+.Flags-icon img{
+    width: 20%;
+    border-radius: 8%;
+    margin-right: 5%;
+}
+
+.sidenav {
+    height: 88.6%;
+    width: 18%;
+    position: fixed;
+    z-index: 1;
+    /* top: 0; */
+    left: 0;
+    background-color: rgb(240, 236, 236);
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding-top: 20px;
+  }
+  .sidenav:hover{
+      overflow-y: scroll;
+  }
+  .sidenav a {
+    padding: 2px 2px 4px 10px;
+    text-decoration: none;
+    /* font-size: 25px; */
+    font-family: 'Capriola';
+    font-size: 0.9rem;
+    color: #5a5a5a;
+    display: block;
+  }
+  
+  .sidenav a:hover {
+   background-color: #5a5a5a;
+   color:whitesmoke;
+  }
+  
+  .main {
+    margin-left: 200px; /* Same as the width of the sidenav */
+  }
+  .active{
+    background-color: #afafaf;
+    color:whitesmoke !important;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }

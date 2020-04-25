@@ -1,0 +1,35 @@
+.dashboard-header{
+    font-family: 'Capriola';
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: rgb(197, 192, 192);
+}
+.homePageNav{
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: -1vh;
+    background-color: rgb(20, 52, 90);
+    border-bottom: 1px solid rgb(20, 52, 90);
+}
+.nav-item{
+    margin-left: 1%;
+}
+.navbar-nav{
+    display: -webkit-box;
+}
+.nav-item span{
+    color: rgb(197, 192, 192);
+    font-size: 1.3rem;
+}
+.live{
+    font-size: 1.7rem !important;
+}
+.nav-item span i{
+    font-family: 'Capriola';
+    font-style: normal;
+    font-size: 1rem;
+}
+.router-link-active span i{
+    color: rgb(197, 192, 192);
+    border-bottom: 2px solid rgb(197, 192, 192);
+}
