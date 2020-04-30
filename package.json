@@ -27,7 +27,7 @@
     "chartjs-plugin-datalabels": "^0.7.0",
     "core-js": "^2.5.4",
     "fa-icons": "^0.2.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "ng4-loading-spinner": "^1.2.3",
     "ngx-embed-video": "^1.0.4",
     "ngx-pagination": "^5.0.0",
